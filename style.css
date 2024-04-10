@@ -40,7 +40,7 @@ html.whatsucl, body.whatsucl{
     height: 100vh;
 }
 .whatsuclcard{
-    background: rgb(227, 90, 248, 0.45);
+    background: rgb(161, 90, 248, 0.7);
     align-content: center;
     font-family: monospace;
     color: black;
