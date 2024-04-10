@@ -502,7 +502,7 @@ function populateDataHTML(club)
             <p>UCL Trophies: ${club.getTrophiesWon()}</p>
             <p>Average Possession: ${club.getAvgPossession()}</p>
             <p>Shots on Target: ${club.getShotsOnTarget()}</p>
-            <p>Conversion Rate: ${club.getShotConversionRate()}</p>
+            <p>Shot Conversion Rate: ${club.getShotConversionRate()}</p>
             <p>Domestic League Position: ${club.getLeaguePosition()}</p>
         </div>
     `;
