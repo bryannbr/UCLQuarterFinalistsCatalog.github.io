@@ -59,7 +59,7 @@ class Club
         return this.leaguePos;
     }
 }
-
+//array of clubs objects
 let clubs = [
     new Club("FC Barcelona", "Spain", 16, 8, 1.98, 5, 2, 25.4, 5, 58.25, 45, 12.03, 2),
     new Club("Paris Saint Germain", "France", 13, 9, 1.82, 4, 2, 25.2, 0, 60.75, 42, 10.0, 1),
@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", function() {
     sortClubsByLeaguePosButton.addEventListener("click", sortClubsByLeaguePos);
 
 
-    // Populating initial club data onto infocards
+    // To populate club data on infocards
     clubs.forEach((club, index) => {
         let clubDataHTML = populateDataHTML(club);
         eClubContainers[index].querySelector(".info-card .club-data-container").innerHTML = clubDataHTML;
@@ -148,25 +148,26 @@ document.addEventListener("DOMContentLoaded", function(){
 //Sorting Functions
 function sortClubsByGoals() {
     //Version 4, Bayern is at top on webpage, but in console its perfectly arranged
+    //Compare clubs using getGoalsScored
     clubs.sort((a, b) => b.getGoalsScored() - a.getGoalsScored());
     let eContainer = document.querySelector('.econtainer');
     let eClubContainers = document.querySelectorAll('.eclub-container');
     eClubContainers = Array.from(eClubContainers);
 
 
-    // Sort eclub-container elements based on the sorted clubs array
+    // Sort eclub-container elements from Array
     eClubContainers.sort((a, b) => {
         let clubAName = a.querySelector('.ecard h2').textContent;
         let clubBName = b.querySelector('.ecard h2').textContent;
 
-        // Find index of club in sorted array
+        // Get the indexes of compared clubs
         let clubAIndex = clubs.findIndex(club => club.getName() === clubAName);
         let clubBIndex = clubs.findIndex(club => club.getName() === clubBName);
 
         return clubAIndex - clubBIndex;
     });
 
-    // Rearrange eclub-container elements in the DOM
+    // Rearrange elements
     eClubContainers.forEach(container => {
         eContainer.appendChild(container); // Appends each container in the new order
     });
@@ -179,7 +180,7 @@ function sortClubsByxG(){
     eClubContainers = Array.from(eClubContainers);
 
 
-    // Sort eclub-container elements based on the sorted clubs array
+    // Reused logic from sortClubsByGoals
     eClubContainers.sort((a, b) => {
         let clubAName = a.querySelector('.ecard h2').textContent;
         let clubBName = b.querySelector('.ecard h2').textContent;
@@ -191,7 +192,7 @@ function sortClubsByxG(){
         return clubAIndex - clubBIndex;
     });
 
-    // Rearrange eclub-container elements in the DOM
+    // Rearrange eclub-container elements
     eClubContainers.forEach(container => {
         eContainer.appendChild(container); // Appends each container in the new order
     });
@@ -204,19 +205,18 @@ function sortClubsByLeastGoalsC(){
     eClubContainers = Array.from(eClubContainers);
 
 
-    // Sort eclub-container elements based on the sorted clubs array
     eClubContainers.sort((a, b) => {
         let clubAName = a.querySelector('.ecard h2').textContent;
         let clubBName = b.querySelector('.ecard h2').textContent;
 
-        // Find index of club in sorted array
+        // Find indexes
         let clubAIndex = clubs.findIndex(club => club.getName() === clubAName);
         let clubBIndex = clubs.findIndex(club => club.getName() === clubBName);
 
         return clubAIndex - clubBIndex;
     });
 
-    // Rearrange eclub-container elements in the DOM
+    
     eClubContainers.forEach(container => {
         eContainer.appendChild(container); // Appends each container in the new order
     });
@@ -229,19 +229,19 @@ function sortClubsBySquadAge(){
     eClubContainers = Array.from(eClubContainers);
 
 
-    // Sort eclub-container elements based on the sorted clubs array
+    
     eClubContainers.sort((a, b) => {
         let clubAName = a.querySelector('.ecard h2').textContent;
         let clubBName = b.querySelector('.ecard h2').textContent;
 
-        // Find index of club in sorted array
+        
         let clubAIndex = clubs.findIndex(club => club.getName() === clubAName);
         let clubBIndex = clubs.findIndex(club => club.getName() === clubBName);
 
         return clubAIndex - clubBIndex;
     });
 
-    // Rearrange eclub-container elements in the DOM
+    
     eClubContainers.forEach(container => {
         eContainer.appendChild(container); // Appends each container in the new order
     });
@@ -254,19 +254,19 @@ function sortClubsByTrophies(){
     eClubContainers = Array.from(eClubContainers);
 
 
-    // Sort eclub-container elements based on the sorted clubs array
+    
     eClubContainers.sort((a, b) => {
         let clubAName = a.querySelector('.ecard h2').textContent;
         let clubBName = b.querySelector('.ecard h2').textContent;
 
-        // Find index of club in sorted array
+        
         let clubAIndex = clubs.findIndex(club => club.getName() === clubAName);
         let clubBIndex = clubs.findIndex(club => club.getName() === clubBName);
 
         return clubAIndex - clubBIndex;
     });
 
-    // Rearrange eclub-container elements in the DOM
+    
     eClubContainers.forEach(container => {
         eContainer.appendChild(container); // Appends each container in the new order
     });
@@ -279,7 +279,7 @@ function sortClubsByPossession(){
     eClubContainers = Array.from(eClubContainers);
 
 
-    // Sort eclub-container elements based on the sorted clubs array
+    
     eClubContainers.sort((a, b) => {
         let clubAName = a.querySelector('.ecard h2').textContent;
         let clubBName = b.querySelector('.ecard h2').textContent;
@@ -291,7 +291,7 @@ function sortClubsByPossession(){
         return clubAIndex - clubBIndex;
     });
 
-    // Rearrange eclub-container elements in the DOM
+    
     eClubContainers.forEach(container => {
         eContainer.appendChild(container); // Appends each container in the new order
     });
@@ -304,7 +304,7 @@ function sortClubsByShots(){
     eClubContainers = Array.from(eClubContainers);
 
 
-    // Sort eclub-container elements based on the sorted clubs array
+    
     eClubContainers.sort((a, b) => {
         let clubAName = a.querySelector('.ecard h2').textContent;
         let clubBName = b.querySelector('.ecard h2').textContent;
@@ -316,7 +316,7 @@ function sortClubsByShots(){
         return clubAIndex - clubBIndex;
     });
 
-    // Rearrange eclub-container elements in the DOM
+    
     eClubContainers.forEach(container => {
         eContainer.appendChild(container); // Appends each container in the new order
     });
@@ -329,19 +329,19 @@ function sortClubsByConvRate(){
     eClubContainers = Array.from(eClubContainers);
 
 
-    // Sort eclub-container elements based on the sorted clubs array
+    
     eClubContainers.sort((a, b) => {
         let clubAName = a.querySelector('.ecard h2').textContent;
         let clubBName = b.querySelector('.ecard h2').textContent;
 
-        // Find index of club in sorted array
+        
         let clubAIndex = clubs.findIndex(club => club.getName() === clubAName);
         let clubBIndex = clubs.findIndex(club => club.getName() === clubBName);
 
         return clubAIndex - clubBIndex;
     });
 
-    // Rearrange eclub-container elements in the DOM
+    
     eClubContainers.forEach(container => {
         eContainer.appendChild(container); // Appends each container in the new order
     });
@@ -354,7 +354,7 @@ function sortClubsByLeaguePos(){
     eClubContainers = Array.from(eClubContainers);
 
 
-    // Sort eclub-container elements based on the sorted clubs array
+    
     eClubContainers.sort((a, b) => {
         let clubAName = a.querySelector('.ecard h2').textContent;
         let clubBName = b.querySelector('.ecard h2').textContent;
@@ -366,11 +366,12 @@ function sortClubsByLeaguePos(){
         return clubBIndex - clubAIndex;
     });
 
-    // Rearrange eclub-container elements in the DOM
+    
     eClubContainers.forEach(container => {
         eContainer.appendChild(container); // Appends each container in the new order
     });
 
+    //I used this for debugging and inspect the page to see if the containers were sorting themselves properly
     // clubs.forEach(club => {
     //     console.log(`${club.getName()}: ${club.getLeaguePosition()}`);
     // });
@@ -383,18 +384,18 @@ function filterBySpain(){
 
     eClubContainers.forEach(container => {
         let clubName = container.querySelector('.ecard h2').textContent; // Get the club name
-        let club = clubs.find(club => club.getName() === clubName); // Find the corresponding club object
+        let club = clubs.find(club => club.getName() === clubName); // Find the club object
 
         if (club.getCountry() === "Spain") {
-            container.style.display = "grid"; // Display the container if the club is from Spain
+            container.style.display = "grid"; // Display container if the club is from Spain
         } else {
-            container.style.display = "none"; // Hide the container if the club is not from Spain or not found
+            container.style.display = "none"; // Hide container if the club is not from Spain
         }
     });
 
-    // Rearrange eclub-container elements in the DOM (optional, depending on your layout)
+    
     eClubContainers.forEach(container => {
-        eContainer.appendChild(container); // Appends each container in the new order
+        eContainer.appendChild(container); // Appends each container in order
     });
 }
 function filterByEngland(){
@@ -404,18 +405,18 @@ function filterByEngland(){
 
     eClubContainers.forEach(container => {
         let clubName = container.querySelector('.ecard h2').textContent; // Get the club name
-        let club = clubs.find(club => club.getName() === clubName); // Find the corresponding club object
+        let club = clubs.find(club => club.getName() === clubName); // Find the club object
 
         if (club.getCountry() === "England") {
-            container.style.display = "grid"; // Display the container if the club is from Spain
+            container.style.display = "grid"; // Display container if club from England
         } else {
-            container.style.display = "none"; // Hide the container if the club is not from Spain or not found
+            container.style.display = "none"; // Hide the container if the club not English
         }
     });
 
-    // Rearrange eclub-container elements in the DOM (optional, depending on your layout)
+    
     eClubContainers.forEach(container => {
-        eContainer.appendChild(container); // Appends each container in the new order
+        eContainer.appendChild(container); // Appends each container in order
     });
 }
 function filterByFrance(){
@@ -425,18 +426,18 @@ function filterByFrance(){
 
     eClubContainers.forEach(container => {
         let clubName = container.querySelector('.ecard h2').textContent; // Get the club name
-        let club = clubs.find(club => club.getName() === clubName); // Find the corresponding club object
+        let club = clubs.find(club => club.getName() === clubName); // Findclub object
 
         if (club.getCountry() === "France") {
-            container.style.display = "grid"; // Display the container if the club is from Spain
+            container.style.display = "grid"; // Display the container if the club is French
         } else {
-            container.style.display = "none"; // Hide the container if the club is not from Spain or not found
+            container.style.display = "none"; // Hide the container if the club is not
         }
     });
 
-    // Rearrange eclub-container elements in the DOM (optional, depending on your layout)
+    
     eClubContainers.forEach(container => {
-        eContainer.appendChild(container); // Appends each container in the new order
+        eContainer.appendChild(container); // Appends each container in order
     });
 }
 function filterByGerman(){
@@ -446,18 +447,18 @@ function filterByGerman(){
 
     eClubContainers.forEach(container => {
         let clubName = container.querySelector('.ecard h2').textContent; // Get the club name
-        let club = clubs.find(club => club.getName() === clubName); // Find the corresponding club object
+        let club = clubs.find(club => club.getName() === clubName); // Find  club object
 
         if (club.getCountry() === "Germany") {
-            container.style.display = "grid"; // Display the container if the club is from Spain
+            container.style.display = "grid"; // Display the container if the club is from Germany
         } else {
-            container.style.display = "none"; // Hide the container if the club is not from Spain or not found
+            container.style.display = "none"; // Hide the container if the club is not
         }
     });
 
-    // Rearrange eclub-container elements in the DOM (optional, depending on your layout)
+    
     eClubContainers.forEach(container => {
-        eContainer.appendChild(container); // Appends each container in the new order
+        eContainer.appendChild(container); // Appends each container in order
     });
 }
 function filterByWonUCL(){
@@ -467,22 +468,22 @@ function filterByWonUCL(){
 
     eClubContainers.forEach(container => {
         let clubName = container.querySelector('.ecard h2').textContent; // Get the club name
-        let club = clubs.find(club => club.getName() === clubName); // Find the corresponding club object
+        let club = clubs.find(club => club.getName() === clubName); // Find club object
 
         if (club.getTrophiesWon() > 0) {
-            container.style.display = "grid"; // Display the container if the club is from Spain
+            container.style.display = "grid"; // Display the container if they've won the UCL before
         } else {
-            container.style.display = "none"; // Hide the container if the club is not from Spain or not found
+            container.style.display = "none"; // Otherwise, don't show them
         }
     });
 
-    // Rearrange eclub-container elements in the DOM (optional, depending on your layout)
+    
     eClubContainers.forEach(container => {
-        eContainer.appendChild(container); // Appends each container in the new order
+        eContainer.appendChild(container); // Appends each container in order
     });
 }
 function filterByNone(){
-    location.reload();
+    location.reload(); //refreshes page if they want to remove filters
 }
 
 
@@ -513,11 +514,11 @@ document.addEventListener("DOMContentLoaded", function() {
     // Add click event listener to each team card
     quarterFinalTeamCards.forEach(teamCard => {
         teamCard.addEventListener('click', function() {
-            // Get the clicked team's name and image source
+            // Retrieve a team's name and image source when clicked
             let qTeamName = teamCard.querySelector('h2').textContent;
             let qTeamImageSrc = teamCard.querySelector('img').src;
 
-            // Populate the corresponding team card in the semi-finals with the same data
+            // Populate team card in the semi-finals with the same data if clicked
             let semiFinalTeam1 = document.querySelector('.semimatchup:nth-child(1) .team:nth-child(1)');
             let semiFinalTeam2 = document.querySelector('.semimatchup:nth-child(1) .team:nth-child(2)');
             let semiFinalTeam3 = document.querySelector('.semimatchup:nth-child(2) .team:nth-child(1)');
@@ -546,15 +547,15 @@ document.addEventListener("DOMContentLoaded", function() {
 
         });
     });
-    // Get all team cards in the semi-finals matchups
+    // Now...get all team cards in the semi-finals matchups
     let semiFinalTeamCards = document.querySelectorAll('.semimatchup .team');
     semiFinalTeamCards.forEach(teamCard => {
         teamCard.addEventListener('click', function() {
-            // Get the clicked team's name and image source
+            // get name and image
             let sTeamName = teamCard.querySelector('h2').textContent;
             let sTeamImageSrc = teamCard.querySelector('img').src;
 
-            // Populate the corresponding team card in the semi-finals with the same data
+            // Populate team cards in the finals now
             let finalTeam1 = document.querySelector('.finalmatchup .team:nth-child(1)');
             let finalTeam2 = document.querySelector('.finalmatchup .team:nth-child(2)');
 
@@ -573,15 +574,15 @@ document.addEventListener("DOMContentLoaded", function() {
 
         });
     });
-    //Get cards in final matchup
+    //Finally, get cards in final matchup
     let finalTeamCards = document.querySelectorAll('.finalmatchup .team');
     finalTeamCards.forEach(teamCard => {
         teamCard.addEventListener('click', function() {
-            // Get the clicked team's name and image source
+            // Get the name and image
             let fTeamName = teamCard.querySelector('h2').textContent;
             let fTeamImageSrc = teamCard.querySelector('img').src;
 
-            // Populate the corresponding team card in the semi-finals with the same data
+            // Populate the winner teams card with the data
             let winnerTeam = document.querySelector('.finalwinner .team:nth-child(1)');
 
             if (fTeamName === "FC Barcelona" || fTeamName === "Atletico Madrid" ||
@@ -602,7 +603,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 });
 
-//to display the data of each club object onto the infocard
+//for display of data and stats of each club object on the infocard in explore page
 document.addEventListener("DOMContentLoaded", function() {
     infoCardContainers = document.querySelectorAll(".info-card");
 
@@ -611,13 +612,14 @@ document.addEventListener("DOMContentLoaded", function() {
         infoCardContainers[index].querySelector(".club-data-container").innerHTML = clubDataHTML;
     });
 });
+//function to reset tournament simulator in simulation page
 document.addEventListener("DOMContentLoaded", function() {
     // Find the reset button element
     var resetButton = document.getElementById("resetButton");
 
-    // Add click event listener to the reset button
+    // Add event listener to the reset button
     resetButton.addEventListener("click", function() {
-        // Reload the page when the button is clicked
+        // Refresh page if user wants to resimulate tournament
         location.reload();
     });
 });
