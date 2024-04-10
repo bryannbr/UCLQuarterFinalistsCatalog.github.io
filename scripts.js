@@ -590,11 +590,11 @@ document.addEventListener("DOMContentLoaded", function() {
                 winnerTeam.querySelector('h2').textContent = fTeamName;
                 winnerTeam.querySelector('img').src = fTeamImageSrc;
             }
-            if (fTeamName === "Arsenal" || fTeamName == "Bayern Munich" ||
-            fTeamName === "Real Madrid" || fTeamName == "Manchester City")
+            if (fTeamName === "Arsenal" || fTeamName === "Bayern Munich" ||
+            fTeamName === "Real Madrid" || fTeamName === "Manchester City")
             {
-                winner.querySelector('h2').textContent = fTeamName;
-                winner.querySelector('img').src = fTeamImageSrc;
+                winnerTeam.querySelector('h2').textContent = fTeamName;
+                winnerTeam.querySelector('img').src = fTeamImageSrc;
             }
 
         });
